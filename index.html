@@ -53,8 +53,15 @@
         }
 
         .logo img {
-            height: 32px;
+            height: 40px;
             width: auto;
+            max-width: 150px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8b5cf6;
         }
 
         .nav-links {
@@ -143,6 +150,14 @@
             padding: 60px 20px;
             text-align: center;
             border: 2px dashed rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-placeholder:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+            background: rgba(139, 92, 246, 0.1);
+            transform: scale(1.02);
         }
 
         /* Problem/Solution Section */
@@ -219,6 +234,13 @@
             padding: 16px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .comparison-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(5px);
         }
 
         .comparison-item .icon {
@@ -252,12 +274,15 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(139, 92, 246, 0.1);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
         }
 
         .feature-icon {
@@ -331,6 +356,14 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
         }
 
         .testimonial-header {
@@ -400,6 +433,13 @@
             padding: 16px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .qualification-list li:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(8px);
         }
 
         .ready-list {
@@ -542,92 +582,9 @@
             animation: pulse 2s infinite;
         }
 
-        /* Enhanced Hover Effects */
-        .feature-card {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(139, 92, 246, 0.5);
-            background: rgba(139, 92, 246, 0.1);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-        }
-
-        .testimonial-card {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
-        }
-
-        .video-placeholder {
-            background: #1a1a2e;
-            border-radius: 12px;
-            padding: 60px 20px;
-            text-align: center;
-            border: 2px dashed rgba(139, 92, 246, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .video-placeholder:hover {
-            border-color: rgba(139, 92, 246, 0.6);
-            background: rgba(139, 92, 246, 0.1);
-            transform: scale(1.02);
-        }
-
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Interactive Elements */
-        .comparison-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding: 16px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .comparison-item:hover {
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateX(5px);
-        }
-
-        .qualification-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding: 16px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .qualification-list li:hover {
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateX(8px);
         }
 
         /* Loading Animation */
@@ -641,6 +598,8 @@
             transform: translateY(0);
             transition: all 0.6s ease;
         }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -663,6 +622,10 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+
+            .logo img {
+                height: 32px;
+            }
         }
     </style>
 </head>
@@ -671,9 +634,8 @@
     <header class="header">
         <nav class="nav container">
             <div class="logo">
-                <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" fill="#8b5cf6">AmitSells</text>
-                </svg>
+                <img src="logo.png" alt="AmitSells Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">AmitSells</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#how-it-works">How it works</a></li>
