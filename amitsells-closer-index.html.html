@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmitSells - Elite Sales Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8b5cf6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-badge {
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            margin: 50px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-placeholder {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            border: 2px dashed rgba(139, 92, 246, 0.3);
+        }
+
+        /* Problem/Solution Section */
+        .comparison-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .comparison-subtitle {
+            text-align: center;
+            color: #a1a1aa;
+            margin-bottom: 60px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .comparison-side {
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .problems {
+            background: rgba(139, 92, 246, 0.05);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .solutions {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .comparison-arrow {
+            background: #8b5cf6;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-item .icon {
+            margin-top: 2px;
+            font-size: 18px;
+        }
+
+        /* What You Get Section */
+        .features-section {
+            padding: 100px 0;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #a1a1aa;
+        }
+
+        .pricing-highlight {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 10px;
+        }
+
+        .price-note {
+            color: #a1a1aa;
+            margin-bottom: 20px;
+        }
+
+        .guarantee {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 15px;
+        }
+
+        /* Qualification Section */
+        .qualification-section {
+            padding: 100px 0;
+        }
+
+        .qualification-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .qualification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .qualification-list {
+            list-style: none;
+        }
+
+        .qualification-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .ready-list {
+            border-left: 3px solid #8b5cf6;
+        }
+
+        .not-ready-list {
+            border-left: 3px solid rgba(139, 92, 246, 0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.05));
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .large-cta {
+            font-size: 1.2rem;
+            padding: 20px 40px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #8b5cf6;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a1a1aa;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a1a1aa;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .slide-left {
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .slide-right {
+            animation: slideInRight 0.8s ease;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Enhanced Hover Effects */
+        .feature-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(139, 92, 246, 0.1);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
+        }
+
+        .video-placeholder {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            border: 2px dashed rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-placeholder:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+            background: rgba(139, 92, 246, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Interactive Elements */
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .comparison-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(5px);
+        }
+
+        .qualification-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .qualification-list li:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(8px);
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .loaded {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-arrow {
+                display: none;
+            }
+            
+            .qualification-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" fill="#8b5cf6">AmitSells</text>
+                </svg>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#success-stories">Success Stories</a></li>
+                <li><a href="#qualification">Qualification</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#book-call" class="cta-button pulse-animation">Book Your Call</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge animate-on-scroll">🔥 The Elite Community Where Closers Earn 10-20% on High-Ticket Deals</div>
+            
+            <h1 class="animate-on-scroll">Most People Sell.<br>You Close.</h1>
+            
+            <p class="subtitle animate-on-scroll">Join the exclusive community where serious closers earn $10K-$30K per month through pre-vetted, high-ticket opportunities</p>
+            
+            <div class="video-container animate-on-scroll">
+                <div class="video-placeholder" onclick="playVideo()">
+                    <h3>🎯 8-Minute Breakdown Video</h3>
+                    <p>See exactly how our members access pre-vetted, high-ticket deals</p>
+                    <p style="margin-top: 20px; color: #8b5cf6;">▶️ Watch Now - 8:47</p>
+                </div>
+            </div>
+            
+            <a href="#book-call" class="cta-button large-cta animate-on-scroll">Book Your Qualification Call Now →</a>
+            <p style="margin-top: 15px; color: #a1a1aa;" class="animate-on-scroll">Limited spots available - serious applicants only</p>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="comparison-title animate-on-scroll">The Gap Between Where You Are and Where You Want to Be</h2>
+            <p class="comparison-subtitle animate-on-scroll">AmitSells bridges that gap for serious closers</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-side problems animate-on-scroll slide-left">
+                    <div class="comparison-header">
+                        <span>😞</span>
+                        <span>Where You Are Now</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>Chasing low-quality leads that don't convert</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>Working with cheap clients who negotiate every price</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>Inconsistent income and feast-or-famine cycles</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>No support when deals get tough</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>Wasting time on unqualified prospects</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">❌</span>
+                        <span>Struggling to break past $5K months</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-arrow animate-on-scroll">
+                    <span style="font-size: 24px;">→</span>
+                </div>
+                
+                <div class="comparison-side solutions animate-on-scroll slide-right">
+                    <div class="comparison-header">
+                        <span>🔥</span>
+                        <span>Where You're Going</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Access to pre-vetted, high-ticket opportunities</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Closing deals worth $3K-$50K with serious buyers</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Consistent $10K-$30K monthly income potential</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Live support from successful closers</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Quality leads that are ready to buy</span>
+                    </div>
+                    <div class="comparison-item" onclick="highlightItem(this)">
+                        <span class="icon">✅</span>
+                        <span>Building a six-figure sales career</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="features-section" id="how-it-works">
+        <div class="container">
+            <h2 class="features-title">What You Get Inside AmitSells</h2>
+            <p style="text-align: center; color: #a1a1aa; margin-bottom: 60px;">The Complete Package</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Exclusive Access</h3>
+                    <p>High-ticket, pre-vetted opportunities ($3K-$50K deals)</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Commission Rates</h3>
+                    <p>Between 10-20% on every closed deal</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Live Training</h3>
+                    <p>From closers currently earning $20K+ per month</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Deal Support</h3>
+                    <p>Real-time backup when you're on important calls</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Private Community</h3>
+                    <p>Elite closers sharing tactics and opportunities</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Weekly Coaching</h3>
+                    <p>Calls with Amit and top performers</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast-Track Placement</h3>
+                    <p>Start closing within 14 days</p>
+                </div>
+            </div>
+            
+            <div class="pricing-highlight">
+                <div class="price">$297/month</div>
+                <div class="price-note">(pays for itself with one deal)</div>
+                <div class="guarantee">
+                    <strong>Guarantee:</strong> Land your first opportunity within 60 days or money back
+                </div>
+                <a href="#book-call" class="cta-button large-cta" style="margin-top: 30px;">Apply for AmitSells Now →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="testimonials-section" id="success-stories">
+        <div class="container">
+            <h2 class="testimonials-title">Real Closers. Real Results. Real Money.</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-result">$47K in first 90 days</div>
+                    <p>"I closed my first $8K deal in 9 days. Best decision I made all year. The community alone is worth 10x what I pay."</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-info">
+                            <h4>Josh R.</h4>
+                            <div class="testimonial-role">Ex-Freelancer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-result">Consistent $15K months</div>
+                    <p>"The Slack channel is worth $10K/month in mindset and tactics. These people actually know what they're talking about."</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AT</div>
+                        <div class="testimonial-info">
+                            <h4>Anisha T.</h4>
+                            <div class="testimonial-role">Full-Time Closer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-result">$89K in 6 months</div>
+                    <p>"They don't teach theory. They make you earn it. And that's exactly why it works. 24 deals since February."</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LM</div>
+                        <div class="testimonial-info">
+                            <h4>Leo M.</h4>
+                            <div class="testimonial-role">Former Agency Employee</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-result">$12K first month</div>
+                    <p>"I went from retail management to closing high-ticket deals. AmitSells gave me everything I needed to succeed."</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MK</div>
+                        <div class="testimonial-info">
+                            <h4>Maria K.</h4>
+                            <div class="testimonial-role">Career Changer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualification Section -->
+    <section class="qualification-section" id="qualification">
+        <div class="container">
+            <h2 class="qualification-title">This Path Forward Is For...</h2>
+            
+            <div class="qualification-grid">
+                <div>
+                    <h3 style="color: #8b5cf6; margin-bottom: 30px; font-size: 1.5rem;">✅ You're Ready If:</h3>
+                    <ul class="qualification-list ready-list">
+                        <li>
+                            <span>✅</span>
+                            <span>You're hungry for real opportunities, not more theory</span>
+                        </li>
+                        <li>
+                            <span>✅</span>
+                            <span>You can handle commission-only with the right support</span>
+                        </li>
+                        <li>
+                            <span>✅</span>
+                            <span>You're coachable and willing to follow proven systems</span>
+                        </li>
+                        <li>
+                            <span>✅</span>
+                            <span>You want to earn $10K-$30K+ per month consistently</span>
+                        </li>
+                        <li>
+                            <span>✅</span>
+                            <span>You're tired of low-quality leads and cheap clients</span>
+                        </li>
+                        <li>
+                            <span>✅</span>
+                            <span>You understand success requires investment and effort</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: rgba(139, 92, 246, 0.7); margin-bottom: 30px; font-size: 1.5rem;">❌ This ISN'T For You If:</h3>
+                    <ul class="qualification-list not-ready-list">
+                        <li>
+                            <span>❌</span>
+                            <span>You're looking for guaranteed money without work</span>
+                        </li>
+                        <li>
+                            <span>❌</span>
+                            <span>You need constant hand-holding and motivation</span>
+                        </li>
+                        <li>
+                            <span>❌</span>
+                            <span>You're not willing to invest in your success</span>
+                        </li>
+                        <li>
+                            <span>❌</span>
+                            <span>You want a "get rich quick" scheme</span>
+                        </li>
+                        <li>
+                            <span>❌</span>
+                            <span>You blame others for your lack of results</span>
+                        </li>
+                        <li>
+                            <span>❌</span>
+                            <span>You're not serious about building a sales career</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">We only work with people who are serious about winning.</p>
+                <a href="#book-call" class="cta-button large-cta">I'm Ready - Book My Call →</a>
+                <p style="margin-top: 15px; color: #a1a1aa;">Serious applicants only</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section" id="book-call">
+        <div class="container">
+            <h2>Ready to Move from Where You Are to Where You Want to Be?</h2>
+            <p>You've seen the opportunities. You've seen the results. You know what's possible. The only question is: Are you ready to stop settling for average and start earning what you're worth?</p>
+            
+            <p style="margin-bottom: 40px;">AmitSells isn't for everyone. We're selective about who we accept because we're serious about results.</p>
+            
+            <a href="mailto:amit@amitsells.com" class="cta-button large-cta">Apply to Join AmitSells Now →</a>
+            <p style="margin-top: 20px; color: #a1a1aa;">Book your qualification call today</p>
+            <p style="color: #8b5cf6; margin-top: 10px;">Limited spots available this month</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AmitSells</h3>
+                    <p>The elite community where closers earn 10-20% on high-ticket deals.</p>
+                    <p>"Nobody's holding your hand. But everyone has your back." — Amit, Founder</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Get in Touch</h3>
+                    <a href="mailto:amit@amitsells.com">amit@amitsells.com</a>
+                    <p>For qualification questions and support</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <p>Elite Sales Training</p>
+                    <p>High-Ticket Opportunities</p>
+                    <p>Proven Systems & Support</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 AmitSells. All rights reserved. Elite sales community for serious closers only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive functions
+        function playVideo() {
+            const videoContainer = document.querySelector('.video-placeholder');
+            videoContainer.innerHTML = `
+                <div style="padding: 40px; text-align: center;">
+                    <div style="background: #8b5cf6; color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                        <h3>🎬 Video Playing...</h3>
+                        <p>This would be your actual video player</p>
+                    </div>
+                    <button onclick="resetVideo()" style="background: rgba(139, 92, 246, 0.2); border: 1px solid #8b5cf6; color: #8b5cf6; padding: 10px 20px; border-radius: 6px; cursor: pointer;">Reset Demo</button>
+                </div>
+            `;
+            videoContainer.style.border = '2px solid #8b5cf6';
+        }
+
+        function resetVideo() {
+            const videoContainer = document.querySelector('.video-placeholder');
+            videoContainer.innerHTML = `
+                <h3>🎯 8-Minute Breakdown Video</h3>
+                <p>See exactly how our members access pre-vetted, high-ticket deals</p>
+                <p style="margin-top: 20px; color: #8b5cf6;">▶️ Watch Now - 8:47</p>
+            `;
+            videoContainer.style.border = '2px dashed rgba(139, 92, 246, 0.3)';
+        }
+
+        function highlightItem(element) {
+            // Remove previous highlights
+            document.querySelectorAll('.comparison-item.highlighted').forEach(el => {
+                el.classList.remove('highlighted');
+                el.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+            
+            // Add highlight to clicked item
+            element.classList.add('highlighted');
+            element.style.background = 'rgba(139, 92, 246, 0.2)';
+            element.style.borderLeft = '4px solid #8b5cf6';
+            
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                element.classList.remove('highlighted');
+                element.style.background = 'rgba(255, 255, 255, 0.05)';
+                element.style.borderLeft = 'none';
+            }, 3000);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Stagger animation for hero elements
+            const heroElements = document.querySelectorAll('.hero .animate-on-scroll');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animated');
+                }, index * 200);
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(139, 92, 246, 0.1)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Interactive CTA button effects
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+                this.style.boxShadow = '0 15px 35px rgba(139, 92, 246, 0.4)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-2px) scale(1)';
+                this.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.3)';
+            });
+            
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Interactive testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Highlight the testimonial result
+                const result = this.querySelector('.testimonial-result');
+                const originalColor = result.style.color;
+                result.style.color = '#ffffff';
+                result.style.textShadow = '0 0 20px #8b5cf6';
+                
+                setTimeout(() => {
+                    result.style.color = originalColor;
+                    result.style.textShadow = 'none';
+                }, 2000);
+            });
+        });
+
+        // Qualification list interactive effects
+        document.querySelectorAll('.qualification-list li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = 'rgba(139, 92, 246, 0.2)';
+                this.style.transform = 'translateX(15px) scale(1.02)';
+                
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 255, 255, 0.05)';
+                    this.style.transform = 'translateX(8px)';
+                }, 1500);
+            });
+        });
+
+        // Feature card click interaction
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const icon = this.querySelector('.feature-icon');
+                icon.style.transform = 'scale(1.5) rotate(360deg)';
+                icon.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }, 600);
+            });
+        });
+
+        // Mobile menu toggle (for smaller screens)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Add mobile menu button for smaller screens
+        if (window.innerWidth <= 768) {
+            const nav = document.querySelector('.nav');
+            const mobileButton = document.createElement('button');
+            mobileButton.innerHTML = '☰';
+            mobileButton.style.cssText = `
+                background: none;
+                border: none;
+                color: #8b5cf6;
+                font-size: 24px;
+                cursor: pointer;
+                display: block;
+            `;
+            mobileButton.onclick = toggleMobileMenu;
+            nav.appendChild(mobileButton);
+        }
+
+        console.log('🔥 AmitSells Interactive Landing Page Loaded!');
+    </script>
+</body>
+</html>
